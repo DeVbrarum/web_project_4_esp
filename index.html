@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Around the U.S.</title>
+    <link rel="stylesheet" href="pages/index.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img src="images/logo.png" alt="logo de Around The US" class="logo" />
+      </header>
+      <main>
+        <section class="profile">
+          <div class="profile__avatar">
+            <img
+              src="images/profile.jpg"
+              alt="Fotografia del perfil del usuario"
+              class="profile__avatar-image"
+            />
+          </div>
+
+          <div class="profile__info">
+            <h2 class="profile__info-name">Jacques Cousteau</h2>
+            <h3 class="profile__info-about">Explorador</h3>
+          </div>
+
+          <button class="profile__editButton">
+            <img src="./images/Icons/editIcon.png" alt="Edit button" />
+          </button>
+          <button class="profile__addButton">
+            <img src="./images/Icons/plusIcon.png" alt="Add-button" />
+          </button>
+        </section>
+
+        <section class="form-profile">
+          <div class="form__background"></div>
+          <div class="form form-profile__popup">
+            <h2 class="form__title">Editar perfil</h2>
+
+            <button class="form__close">
+              <img
+                src="images/Icons/close-icon.png"
+                alt="Close icon"
+                class="form__close-icon"
+              />
+            </button>
+
+            <form class="form__inputs" novalidate>
+              <input
+                class="form__input form-profile__name"
+                type="text"
+                id="nameInput"
+                name="nombre"
+                placeholder="Nombre"
+                minlength="2"
+                maxlength="17"
+                required
+              />
+
+              <input
+                class="form__input form-profile__about"
+                type="text"
+                id="aboutInput"
+                name="sobre-ti"
+                placeholder="Algo de mi"
+                minlength="2"
+                maxlength="17"
+                required
+              />
+
+              <button type="submit" class="form__submit form-profile__btn">
+                Guardar
+              </button>
+            </form>
+           
+          </div>
+        </section>
+
+        <section class="photos">
+          <template class="photos__template">
+            <div class="photos__content">
+              <button class="photos__trash-btn">
+                <img
+                  src="images/trash.png"
+                  alt="trash icon"
+                  class="photos__trash-icon"
+                />
+              </button>
+              <button class="photos__imgPopup-btn">
+                <img src="" alt="imagen del post" class="photos__img" />
+              </button>
+              <h2 class="photos__title"></h2>
+              <button class="photos__like-btn">
+                <img
+                  src="images/Icons/wheart.png"
+                  alt="icon like heart"
+                  class="photos__like-img"
+                />
+              </button>
+            </div>
+          </template>
+        </section>
+
+        <section class="form-addimg">
+          <div class="form__background"></div>
+          <div class="form form-addimg__popup">
+            <h3 class="form__title">Nuevo Lugar</h3>
+
+            <button class="form__close">
+              <img
+                src="images/Icons/close-icon.png"
+                alt="Close icon"
+                class="form__close-icon"
+              />
+            </button>
+
+            <form class="form__inputs">
+              <input
+                type="text"
+                class="form__input form-addimg__title"
+                id="img-title"
+                name="titulo"
+                placeholder="Título"
+                minlength="2"
+                maxlength="30"
+                required
+              />
+              <input
+                type="url"
+                class="form__input form-addimg__url"
+                id="urlInput"
+                name="urldict"
+                placeholder="Enlace a la imagen"
+                required
+              />
+
+              <button
+                type="submit"
+                class="form__submit form-addimg-btn_action_reset"
+              >
+                Crear
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <section class="img-popup">
+          <div class=".img-popup__background"></div>
+          <div class="img-popup__content">
+            <button class="img-popup__close">
+              <img src="images/Icons/close-icon.png" alt="close icon" class="img-popup__close-icon">
+            </button>
+            <img src="images/pictures/hobbit-town.jpg" alt="fotografia" class="img-popup__photo">
+            <h2 class="img-popup__title">Hobbit Town</h2>
+          </div>
+          <div class="img-popup__background"></div>
+        </section>
+
+      </main>
+    </div>
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
