@@ -1,9 +1,36 @@
 # Proyecto 5: Alrededor de los Estados Unidos
 
+***
+![ Around the U.S.](../images/Screenwebsite.png)
+
+***
+### Visita la página >> 
+
+
+***
+
 ### Descripción general
 
+**Introducción**
+
+Este es un proyecti que experimenta con la interactividad de javascript simulando una red social de imagenes, donde puedes editar el nombre de perfil, añadir nuevos posts, dar like o eliminar los posts.
+
+### Actualizaciones
+
+* Estructura BEM :ok_hand:
+* Uso de reglas-at @import
+* Aplicación de responsividad
+* Implementacion de Javascript
+***
+
+### Tecnologias Usadas
+
+* HTML
+* CSS
+* Visual Studio
 * Figma
-* Imágenes
+* javascript
+***
 
 **Figma**
 
