@@ -1,7 +1,7 @@
 # Proyecto 5: Alrededor de los Estados Unidos
 
 ***
-![ Around the U.S.](../images/Screenwebsite.png)
+![ Around the U.S.](./images/Screenwebsite.png)
 
 ***
 ### Visita la página >> 
