@@ -77,7 +77,6 @@
   box-sizing: border-box;
   border-bottom: 1px solid #bcbcc4;
   background-color: transparent;
-  margin-bottom: 29.74px;
   padding: 0;
 
   font-family: "Inter", Arial, Helvetica, sans-serif;
@@ -89,38 +88,74 @@
   color: #000000;
 }
 
-.form__submit {
-  width: 358px;
-  height: 50.15px;
-
-  border: 0;
-  margin-top: 20.26px;
-  padding-bottom: 5px;
-
-  background: #000000;
-  border-radius: 2px;
-
-  font-family: "Inter";
+.empty-field {
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  color: red;
+  display: block;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-  text-align: center;
-
-  color: #ffffff;
-
-
-  cursor: pointer;
-  transition: opacity 0.3s ease-in-out;
-  opacity: 1;
+  font-size: 12px;
+  line-height: 17px;
 }
 
-.form__submit:hover {
-  opacity: 0.8;
+.invalid {
+  color: red;
+  border-bottom: solid 1px red;
 }
 
-.form__submit_disabled {
-  background-color: #f1f1f1;
-  cursor: default;
-}
+@media screen and (max-width: 984px) {
+  .form {
+    width: 238px;
+    min-width: 238px;
+    min-height: 272px;
+  }
 
+  .form__title {
+    margin-top: 25px;
+    margin-left: 22px;
+
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .form__inputs {
+    display: flex;
+    flex-direction: column;
+    min-width: 238px;
+    margin-left: 22px;
+  }
+
+  .form__input {
+    width: 238px;
+    min-width: 238px;
+    min-height: 26px;
+
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .form__close {
+    position: absolute;
+    right: 13px;
+    top: -40px;
+  }
+
+  .form__close-icon {
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+  }
+
+  .empty-field {
+    width: 238px;
+    height: 30px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

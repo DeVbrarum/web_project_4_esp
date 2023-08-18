@@ -5,10 +5,10 @@
     margin: 0;
 }
 
-@media screen and (max-width: 446px) and (min-width: 320px) {
-    .header__logo {
-      width: 126px;
-      height: 24px;
-      padding-left: 27px;
+@media screen and (max-width: 984px) {
+    .logo {
+      min-width: 126px;
+      min-height: 24px;
+      margin-left: 27px;
     }
   }

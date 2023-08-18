@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Around the U.S.</title>
+    <link rel="shortcut icon" type="image icon" href="images/Icons/Skull.ico" />
     <link rel="stylesheet" href="pages/index.css" />
   </head>
-  <body>
+  <body class="body">
     <div class="page">
       <header class="header">
         <img src="images/logo.png" alt="logo de Around The US" class="logo" />
@@ -22,13 +23,16 @@
           </div>
 
           <div class="profile__info">
-            <h2 class="profile__info-name">Jacques Cousteau</h2>
+            <div class="profile__info-content">
+              <h2 class="profile__info-name">Jacques Cousteau</h2>
+              <button class="profile__editButton">
+                <img src="./images/Icons/editIcon.png" alt="Edit button" />
+              </button>
+            </div>
+
             <h3 class="profile__info-about">Explorador</h3>
           </div>
 
-          <button class="profile__editButton">
-            <img src="./images/Icons/editIcon.png" alt="Edit button" />
-          </button>
           <button class="profile__addButton">
             <img src="./images/Icons/plusIcon.png" alt="Add-button" />
           </button>
@@ -47,34 +51,33 @@
               />
             </button>
 
-            <form class="form__inputs" novalidate>
+            <form class="form__inputs form-profile__inputs" novalidate>
               <input
                 class="form__input form-profile__name"
                 type="text"
                 id="nameInput"
-                name="nombre"
+                name="username"
                 placeholder="Nombre"
                 minlength="2"
-                maxlength="17"
+                maxlength="22"
                 required
               />
-
+              <span class="empty-field"> </span>
               <input
                 class="form__input form-profile__about"
                 type="text"
                 id="aboutInput"
-                name="sobre-ti"
+                name="about"
                 placeholder="Algo de mi"
                 minlength="2"
-                maxlength="17"
+                maxlength="22"
                 required
               />
-
-              <button type="submit" class="form__submit form-profile__btn">
+              <span class="empty-field"> </span>
+              <button type="submit" class="form-profile__btn" id="btnProfile">
                 Guardar
               </button>
             </form>
-           
           </div>
         </section>
 
@@ -83,7 +86,7 @@
             <div class="photos__content">
               <button class="photos__trash-btn">
                 <img
-                  src="images/trash.png"
+                  src="images/Icons/trash.png"
                   alt="trash icon"
                   class="photos__trash-icon"
                 />
@@ -104,11 +107,11 @@
         </section>
 
         <section class="form-addimg">
-          <div class="form__background"></div>
+          <div class="form__background form-addimg__background"></div>
           <div class="form form-addimg__popup">
             <h3 class="form__title">Nuevo Lugar</h3>
 
-            <button class="form__close">
+            <button class="form__close form-addimg__close">
               <img
                 src="images/Icons/close-icon.png"
                 alt="Close icon"
@@ -116,29 +119,32 @@
               />
             </button>
 
-            <form class="form__inputs">
+            <form class="form__inputs form-addimg__inputs">
               <input
                 type="text"
                 class="form__input form-addimg__title"
-                id="img-title"
+                id="imgtitle"
                 name="titulo"
                 placeholder="Título"
                 minlength="2"
                 maxlength="30"
                 required
               />
+              <span class="empty-field"></span>
               <input
                 type="url"
                 class="form__input form-addimg__url"
                 id="urlInput"
-                name="urldict"
+                name="urlImagen"
                 placeholder="Enlace a la imagen"
                 required
               />
-
+              <span class="empty-field"></span>
               <button
                 type="submit"
-                class="form__submit form-addimg-btn_action_reset"
+                class="form-addimg__Btn"
+                id="btnCrear"
+                disabled
               >
                 Crear
               </button>
@@ -149,15 +155,22 @@
         <section class="img-popup">
           <div class=".img-popup__background"></div>
           <div class="img-popup__content">
-            <button class="img-popup__close">
-              <img src="images/Icons/close-icon.png" alt="close icon" class="img-popup__close-icon">
+            <button class="img-popup__close closebtn">
+              <img
+                src="images/Icons/close-icon.png"
+                alt="close icon"
+                class="img-popup__close-icon"
+              />
             </button>
-            <img src="images/pictures/hobbit-town.jpg" alt="fotografia" class="img-popup__photo">
+            <img
+              src="images/pictures/hobbit-town.jpg"
+              alt="fotografia"
+              class="img-popup__photo"
+            />
             <h2 class="img-popup__title">Hobbit Town</h2>
           </div>
           <div class="img-popup__background"></div>
         </section>
-
       </main>
     </div>
     <script src="scripts/script.js"></script>
