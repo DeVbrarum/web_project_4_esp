@@ -171,11 +171,11 @@ function setPopupImgAction(btn) {
 //carga las imagenes preestablecidas por default al website
 let photosDefault = [
     { name: 'Lago Di Braies', link: './images/pictures/lago-di-braies.png' },
-    { name: 'Vrchlabi Czechia', link: '../images/pictures/Vrchlabi Czechia.jpg' },
-    { name: 'Latemar', link: '../images/pictures/latemar.png' },
-    { name: 'Monte Calvas', link: '../images/pictures/monte-calvas.png' },
-    { name: 'Hobbit Town', link: '../images/pictures/hobbit-town.jpg' },
-    { name: 'Eltz Castle', link: '../images/pictures/eltz-castle.jpg' },
+    { name: 'Vrchlabi Czechia', link: './images/pictures/Vrchlabi Czechia.jpg' },
+    { name: 'Latemar', link: './images/pictures/latemar.png' },
+    { name: 'Monte Calvas', link: './images/pictures/monte-calvas.png' },
+    { name: 'Hobbit Town', link: './images/pictures/hobbit-town.jpg' },
+    { name: 'Eltz Castle', link: './images/pictures/eltz-castle.jpg' },
 ]
 
 photosDefault.forEach(function (item, i) {
