@@ -1,297 +1,290 @@
-
-
 //Open and close form profile
-let profileForm = document.querySelector('.form-profile');
-let closeBtn = document.querySelector('.form__close');
-let edditProfileBtn = document.querySelector('.profile__editButton');
-let profileBackground = document.querySelector('.form__background');
+let profileForm = document.querySelector(".form-profile");
+let closeBtn = document.querySelector(".form__close");
+let edditProfileBtn = document.querySelector(".profile__editButton");
+let profileBackground = document.querySelector(".form__background");
 
 function toggleProfileForm(form) {
-    form.classList.toggle('form-profile_open');
+  form.classList.toggle("form-profile_open");
 }
 
-edditProfileBtn.addEventListener('click', () => toggleProfileForm(profileForm));
-profileBackground.addEventListener('click', () => toggleProfileForm(profileForm));
-closeBtn.addEventListener('click', () => toggleProfileForm(profileForm));
+edditProfileBtn.addEventListener("click", () => toggleProfileForm(profileForm));
+profileBackground.addEventListener("click", () =>
+  toggleProfileForm(profileForm)
+);
+closeBtn.addEventListener("click", () => toggleProfileForm(profileForm));
 
 //Save Name and about profile
 
-let profileName = document.querySelector('.profile__info-name');
-let profileAbout = document.querySelector('.profile__info-about');
-let nameInput = document.querySelector('.form-profile__name');
-let aboutInput = document.querySelector('.form-profile__about');
-let saveBtnProfile = document.querySelector('.form-profile__btn');
+let profileName = document.querySelector(".profile__info-name");
+let profileAbout = document.querySelector(".profile__info-about");
+let nameInput = document.querySelector(".form-profile__name");
+let aboutInput = document.querySelector(".form-profile__about");
+let saveBtnProfile = document.querySelector(".form-profile__btn");
 
-let inputsForm = document.querySelector('.form-profile__inputs');
+let inputsForm = document.querySelector(".form-profile__inputs");
 
 //Resetea los valores actuales de Name y About
 
 function resetProfile() {
-    nameInput.value = profileName.textContent;
-    aboutInput.value = profileAbout.textContent;
-    saveBtnProfile.disabled = false;
-    saveBtnProfile.classList.add('form-profile__btn_activa');
+  nameInput.value = profileName.textContent;
+  aboutInput.value = profileAbout.textContent;
+  saveBtnProfile.disabled = false;
+  saveBtnProfile.classList.add("form-profile__btn_activa");
 }
 
 resetProfile();
 
 //Guarda la edicion de name y about
 function saveProfile(evt) {
-    evt.preventDefault();
-    profileName.textContent = nameInput.value;
-    profileAbout.textContent = aboutInput.value;
+  evt.preventDefault();
+  profileName.textContent = nameInput.value;
+  profileAbout.textContent = aboutInput.value;
 
-    toggleProfileForm(profileForm);
+  toggleProfileForm(profileForm);
 }
 
-saveBtnProfile.addEventListener('click', saveProfile);
-inputsForm.addEventListener('submit', saveProfile);
+saveBtnProfile.addEventListener("click", saveProfile);
+inputsForm.addEventListener("submit", saveProfile);
 
 //Open and close addimage form
-let formAddImg = document.querySelector('.form-addimg');
-let addImgBtn = document.querySelector('.profile__addButton');
-let addImgBackG = document.querySelector('.form-addimg__background');
-let addImgClose = document.querySelector('.form-addimg__close');
-let addImgCreateBtn = document.querySelector('.form-addimg__Btn');
-let addImgInputs = document.querySelector('.form-addimg__inputs');
+let formAddImg = document.querySelector(".form-addimg");
+let addImgBtn = document.querySelector(".profile__addButton");
+let addImgBackG = document.querySelector(".form-addimg__background");
+let addImgClose = document.querySelector(".form-addimg__close");
+let addImgCreateBtn = document.querySelector(".form-addimg__Btn");
+let addImgInputs = document.querySelector(".form-addimg__inputs");
 
 function toggleAddimg(form) {
-    form.classList.toggle('form-addimage_is-opened');
+  form.classList.toggle("form-addimage_is-opened");
 }
 
-addImgBtn.addEventListener('click', () => toggleAddimg(formAddImg));
-addImgBackG.addEventListener('click', () => toggleAddimg(formAddImg));
-addImgClose.addEventListener('click', () => toggleAddimg(formAddImg));
-addImgCreateBtn.addEventListener('click', () => toggleAddimg(formAddImg));
+addImgBtn.addEventListener("click", () => toggleAddimg(formAddImg));
+addImgBackG.addEventListener("click", () => toggleAddimg(formAddImg));
+addImgClose.addEventListener("click", () => toggleAddimg(formAddImg));
+addImgCreateBtn.addEventListener("click", () => toggleAddimg(formAddImg));
 
 //Add new photo or post
-let photos = document.querySelector('.photos');
+let photos = document.querySelector(".photos");
 
 // Like button action
 
-let likeButton = document.querySelectorAll('.photos__like-btn');
+let likeButton = document.querySelectorAll(".photos__like-btn");
 
 likeButton.forEach(function (button) {
-    likeAction(button);
+  likeAction(button);
 });
 
 function likeAction(evt) {
-    evt.addEventListener('click', function () {
-        let clickButton = evt.closest('.photos__like-btn');
-        let likeImg = evt.querySelector('.photos__like-img');
-        if (clickButton) {
-            likeImg.classList.toggle('photos__like-btn_activated');
-        }
-    });
+  evt.addEventListener("click", function () {
+    let clickButton = evt.closest(".photos__like-btn");
+    let likeImg = evt.querySelector(".photos__like-img");
+    if (clickButton) {
+      likeImg.classList.toggle("photos__like-btn_activated");
+    }
+  });
 }
 
 function addPhoto(urlPhoto, namePhoto) {
-    let photosTemplate = document.querySelector('.photos__template').content;
-    let photoElement = photosTemplate.querySelector('.photos__content').cloneNode(true);
+  let photosTemplate = document.querySelector(".photos__template").content;
+  let photoElement = photosTemplate
+    .querySelector(".photos__content")
+    .cloneNode(true);
 
-    photoElement.querySelector('.photos__img').src = urlPhoto;
-    photoElement.querySelector('.photos__img').alt = namePhoto;
-    photoElement.querySelector('.photos__title').textContent = namePhoto;
+  photoElement.querySelector(".photos__img").src = urlPhoto;
+  photoElement.querySelector(".photos__img").alt = namePhoto;
+  photoElement.querySelector(".photos__title").textContent = namePhoto;
 
-    photos.prepend(photoElement);
+  photos.prepend(photoElement);
 
-    // Delete new photo added
-    let imgDeletBtn = photoElement.querySelector('.photos__trash-btn');
-    imgDeletBtn.addEventListener('click', function () {
-        photoElement.remove();
+  // Delete new photo added
+  let imgDeletBtn = photoElement.querySelector(".photos__trash-btn");
+  imgDeletBtn.addEventListener("click", function () {
+    photoElement.remove();
+  });
 
-    });
+  // Set show popup new photo added
+  let photoBtn = photoElement.querySelector(".photos__imgPopup-btn");
+  setPopupImgAction(photoBtn);
 
-
-    // Set show popup new photo added
-    let photoBtn = photoElement.querySelector('.photos__imgPopup-btn');
-    setPopupImgAction(photoBtn);
-
-    // Set like button new photo added
-    let photoLikeBtn = photoElement.querySelector('.photos__like-btn');
-    likeAction(photoLikeBtn);
-
+  // Set like button new photo added
+  let photoLikeBtn = photoElement.querySelector(".photos__like-btn");
+  likeAction(photoLikeBtn);
 }
-
-
 
 // Create new post photo
 function addNewPhoto(evt) {
-    evt.preventDefault();
-    let titleInput = document.querySelector('.form-addimg__title');
-    let urlInput = document.querySelector('.form-addimg__url');
+  evt.preventDefault();
+  let titleInput = document.querySelector(".form-addimg__title");
+  let urlInput = document.querySelector(".form-addimg__url");
 
-    addPhoto(urlInput.value, titleInput.value);
+  addPhoto(urlInput.value, titleInput.value);
 
-    urlInput.value = "";
-    titleInput.value = "";
-    resetform();
-
+  urlInput.value = "";
+  titleInput.value = "";
+  resetform();
 }
 
-addImgCreateBtn.addEventListener('click', addNewPhoto);
-addImgInputs.addEventListener('submit', addNewPhoto);
-
+addImgCreateBtn.addEventListener("click", addNewPhoto);
+addImgInputs.addEventListener("submit", addNewPhoto);
 
 //Img popup
-let imgPopup = document.querySelector('.img-popup');
-let imgPopupBackG = document.querySelector('.img-popup__background');
-let imgPopupClose = document.querySelector('.img-popup__close ');
-let imgPopupCloseBtn = document.querySelector('.img-popup__close-icon');
-let imgPopupPhotoBtn = document.querySelectorAll('.photos__imgPopup-btn');
+let imgPopup = document.querySelector(".img-popup");
+let imgPopupBackG = document.querySelector(".img-popup__background");
+let imgPopupClose = document.querySelector(".img-popup__close ");
+let imgPopupCloseBtn = document.querySelector(".img-popup__close-icon");
+let imgPopupPhotoBtn = document.querySelectorAll(".photos__imgPopup-btn");
 
 //
 function imgPopupCloseAct(evt) {
-    evt.classList.toggle('img-popup_activated');
+  evt.classList.toggle("img-popup_activated");
 }
 
-imgPopupClose.addEventListener('click', () => imgPopupCloseAct(imgPopup));
-imgPopupCloseBtn.addEventListener('clicl', () => imgPopupCloseAct(imgPopup));
-imgPopupBackG.addEventListener('click', () => imgPopupCloseAct(imgPopup));
+imgPopupClose.addEventListener("click", () => imgPopupCloseAct(imgPopup));
+imgPopupCloseBtn.addEventListener("clicl", () => imgPopupCloseAct(imgPopup));
+imgPopupBackG.addEventListener("click", () => imgPopupCloseAct(imgPopup));
 
 //Open photo in popup
-let imgPopupPhoto = document.querySelector('.img-popup__photo');
-let imgPopupTitle = document.querySelector('.img-popup__title');
+let imgPopupPhoto = document.querySelector(".img-popup__photo");
+let imgPopupTitle = document.querySelector(".img-popup__title");
 
 imgPopupPhotoBtn.forEach(function (btn) {
-    setPopupImgAction(btn);
-})
+  setPopupImgAction(btn);
+});
 
 function setPopupImgAction(btn) {
-    let photoImg = btn.querySelector('.photos__img');
-    let photoTitle = btn.closest('.photos__content').querySelector('.photos__title');
+  let photoImg = btn.querySelector(".photos__img");
+  let photoTitle = btn
+    .closest(".photos__content")
+    .querySelector(".photos__title");
 
-    btn.addEventListener('click', function () {
-        imgPopupPhoto.src = photoImg.src;
-        imgPopupTitle.textContent = photoTitle.textContent;
-        imgPopupCloseAct(imgPopup);
-    });
+  btn.addEventListener("click", function () {
+    imgPopupPhoto.src = photoImg.src;
+    imgPopupTitle.textContent = photoTitle.textContent;
+    imgPopupCloseAct(imgPopup);
+  });
 }
 
 //carga las imagenes preestablecidas por default al website
 let photosDefault = [
-    { name: 'Lago Di Braies', link: './images/pictures/lago-di-braies.png' },
-    { name: 'Vrchlabi Czechia', link: './images/pictures/Vrchlabi Czechia.jpg' },
-    { name: 'Latemar', link: './images/pictures/latemar.png' },
-    { name: 'Monte Calvas', link: './images/pictures/monte-calvas.png' },
-    { name: 'Hobbit Town', link: './images/pictures/hobbit-town.jpg' },
-    { name: 'Eltz Castle', link: './images/pictures/eltz-castle.jpg' },
-]
+  { name: "Lago Di Braies", link: "./images/pictures/lago-di-braies.png" },
+  { name: "Vrchlabi Czechia", link: "./images/pictures/Vrchlabi Czechia.jpg" },
+  { name: "Latemar", link: "./images/pictures/latemar.png" },
+  { name: "Monte Calvas", link: "./images/pictures/monte-calvas.png" },
+  { name: "Hobbit Town", link: "./images/pictures/hobbit-town.jpg" },
+  { name: "Eltz Castle", link: "./images/pictures/eltz-castle.jpg" },
+];
 
 photosDefault.forEach(function (item, i) {
-    addPhoto(item.link, item.name);
+  addPhoto(item.link, item.name);
 });
 
 //Validacion del formulario y estado de boton submit
 
-const userNameProfile = document.querySelector('[name=username]');
-const userAboutProfile = document.getElementById('aboutInput');
-const titleImgPost = document.getElementById('imgtitle');
-const urlImgPost = document.getElementById('urlInput');
-const profileBtn = document.querySelector('.form-profile__btn');
-const createBtn = document.querySelector('.form-addimg__Btn');
+const userNameProfile = document.querySelector("[name=username]");
+const userAboutProfile = document.getElementById("aboutInput");
+const titleImgPost = document.getElementById("imgtitle");
+const urlImgPost = document.getElementById("urlInput");
+const profileBtn = document.querySelector(".form-profile__btn");
+const createBtn = document.querySelector(".form-addimg__Btn");
 
 const validateEmptyField = (message, evt) => {
-    const field = evt.target;
-    const fieldValue = evt.target.value;
+  const field = evt.target;
+  const fieldValue = evt.target.value;
 
-    if (fieldValue.trim().length < 2) {
+  if (fieldValue.trim().length < 2) {
+    field.classList.add("invalid");
+    field.nextElementSibling.innerText = message;
 
-        field.classList.add('invalid');
-        field.nextElementSibling.innerText = message;
-
-        btnState();
-
+    btnState();
+  } else {
+    if (field.name == urlImgPost.name) {
+      validarUrl(evt);
     } else {
-
-        if (field.name == urlImgPost.name) {
-            validarUrl(evt);
-        } else {
-            btnState();
-            field.classList.remove('invalid');
-            field.nextElementSibling.innerText = "";
-        }
-
+      btnState();
+      field.classList.remove("invalid");
+      field.nextElementSibling.innerText = "";
     }
+  }
+};
 
-}
+userNameProfile.addEventListener("blur", (evt) =>
+  validateEmptyField("Escribe un nombre valido. Minimos 2 caracteres", evt)
+);
 
-userNameProfile.addEventListener('blur', (evt) => validateEmptyField('Escribe un nombre valido. Minimos 2 caracteres', evt));
+userAboutProfile.addEventListener("blur", (evt) =>
+  validateEmptyField("Escribe algo sobre ti. Minimos 2 caracteres", evt)
+);
 
-userAboutProfile.addEventListener('blur', (evt) => validateEmptyField('Escribe algo sobre ti. Minimos 2 caracteres', evt));
+titleImgPost.addEventListener("blur", (evt) =>
+  validateEmptyField("Escribe un titulo valido. Minimos 2 caracteres", evt)
+);
 
-titleImgPost.addEventListener('blur', (evt) => validateEmptyField('Escribe un titulo valido. Minimos 2 caracteres', evt));
-
-urlImgPost.addEventListener('blur', (evt) => validateEmptyField('Aporta una Url valida de una imagen', evt));
-
-
+urlImgPost.addEventListener("blur", (evt) =>
+  validateEmptyField("Aporta una Url valida de una imagen", evt)
+);
 
 function validarUrl(evt) {
-    field = evt.target;
-    fieldValue = evt.target.value;
-    var image = new Image();
-    image.src = fieldValue;
+  field = evt.target;
+  fieldValue = evt.target.value;
+  var image = new Image();
+  image.src = fieldValue;
 
-    image.addEventListener('load', () => {
-        field.classList.remove('invalid');
-        field.nextElementSibling.innerText = "";
-        btnState();
-    });
+  image.addEventListener("load", () => {
+    field.classList.remove("invalid");
+    field.nextElementSibling.innerText = "";
+    btnState();
+  });
 
-    image.addEventListener('error', () => {
-        field.classList.add('invalid');
-        field.nextElementSibling.innerText = "Url no valida. Por favor verificar";
-        btnDisabled();
-    });
-
+  image.addEventListener("error", () => {
+    field.classList.add("invalid");
+    field.nextElementSibling.innerText = "Url no valida. Por favor verificar";
+    btnDisabled();
+  });
 }
 
 // Estado del boton disabled
 function btnDisabled() {
-    document.getElementById('btnCrear').disabled = true;
-    createBtn.classList.remove('form-addimg__Btn_activa');
+  document.getElementById("btnCrear").disabled = true;
+  createBtn.classList.remove("form-addimg__Btn_activa");
 
-    document.getElementById('btnProfile').disabled = true;
-    profileBtn.classList.remove('form-profile__btn_activa');
+  document.getElementById("btnProfile").disabled = true;
+  profileBtn.classList.remove("form-profile__btn_activa");
 }
 
 // Verifica form y activa o desactiva el boton
 function btnState() {
-    fieldtitle = titleImgPost.value;
-    fieldUrl = urlImgPost.value;
-    fieldName = userNameProfile.value;
-    fieldAbout = userAboutProfile.value;
+  fieldtitle = titleImgPost.value;
+  fieldUrl = urlImgPost.value;
+  fieldName = userNameProfile.value;
+  fieldAbout = userAboutProfile.value;
 
-    if (fieldtitle.trim().length < 2 || fieldUrl.trim().length < 2) {
-        document.getElementById('btnCrear').disabled = true;
-        createBtn.classList.remove('form-addimg__Btn_activa');
-    } else {
-        document.getElementById('btnCrear').disabled = false;
-        createBtn.classList.add('form-addimg__Btn_activa');
-    }
+  if (fieldtitle.trim().length < 2 || fieldUrl.trim().length < 2) {
+    document.getElementById("btnCrear").disabled = true;
+    createBtn.classList.remove("form-addimg__Btn_activa");
+  } else {
+    document.getElementById("btnCrear").disabled = false;
+    createBtn.classList.add("form-addimg__Btn_activa");
+  }
 
-    if (fieldName.trim().length < 2 || fieldAbout.trim().length < 2) {
-
-        document.getElementById('btnProfile').disabled = true;
-        profileBtn.classList.remove('form-profile__btn_activa');
-    } else {
-
-        document.getElementById('btnProfile').disabled = false;
-        profileBtn.classList.add('form-profile__btn_activa');
-    }
-
+  if (fieldName.trim().length < 2 || fieldAbout.trim().length < 2) {
+    document.getElementById("btnProfile").disabled = true;
+    profileBtn.classList.remove("form-profile__btn_activa");
+  } else {
+    document.getElementById("btnProfile").disabled = false;
+    profileBtn.classList.add("form-profile__btn_activa");
+  }
 }
 
 function resetform() {
+  titleImgPost.classList.remove("invalid");
+  titleImgPost.nextElementSibling.innerText = "";
 
-    titleImgPost.classList.remove('invalid');
-    titleImgPost.nextElementSibling.innerText = "";
+  urlImgPost.classList.remove("invalid");
+  urlImgPost.nextElementSibling.innerText = "";
 
-    urlImgPost.classList.remove('invalid');
-    urlImgPost.nextElementSibling.innerText = "";
-
-    titleImgPost.value = "";
-    urlImgPost.value = "";
-    btnDisabled();
-    resetProfile();
+  titleImgPost.value = "";
+  urlImgPost.value = "";
+  btnDisabled();
+  resetProfile();
 }

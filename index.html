@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Around the U.S.</title>
-    <link rel="shortcut icon" type="image icon" href="images/Icons/Skull.ico" />
-    <link rel="stylesheet" href="pages/index.css" />
+    <link rel="shortcut icon" href="/images/Icons/Skull.ico">
+    <link rel="stylesheet" href="pages/index.css">
   </head>
   <body class="body">
     <div class="page">
       <header class="header">
-        <img src="images/logo.png" alt="logo de Around The US" class="logo" />
+        <img src="images/logo.png" alt="logo de Around The US" class="logo">
       </header>
       <main>
         <section class="profile">
@@ -19,14 +19,14 @@
               src="images/profile.jpg"
               alt="Fotografia del perfil del usuario"
               class="profile__avatar-image"
-            />
+            >
           </div>
 
           <div class="profile__info">
             <div class="profile__info-content">
               <h2 class="profile__info-name">Jacques Cousteau</h2>
               <button class="profile__editButton">
-                <img src="./images/Icons/editIcon.png" alt="Edit button" />
+                <img src="./images/Icons/editIcon.png" alt="Edit button" >
               </button>
             </div>
 
@@ -34,7 +34,7 @@
           </div>
 
           <button class="profile__addButton">
-            <img src="./images/Icons/plusIcon.png" alt="Add-button" />
+            <img src="./images/Icons/plusIcon.png" alt="Add-button" >
           </button>
         </section>
 
@@ -48,7 +48,7 @@
                 src="images/Icons/close-icon.png"
                 alt="Close icon"
                 class="form__close-icon"
-              />
+              >
             </button>
 
             <form class="form__inputs form-profile__inputs" novalidate>
@@ -61,7 +61,7 @@
                 minlength="2"
                 maxlength="22"
                 required
-              />
+              >
               <span class="empty-field"> </span>
               <input
                 class="form__input form-profile__about"
@@ -72,7 +72,7 @@
                 minlength="2"
                 maxlength="22"
                 required
-              />
+              >
               <span class="empty-field"> </span>
               <button type="submit" class="form-profile__btn" id="btnProfile">
                 Guardar
@@ -81,7 +81,7 @@
           </div>
         </section>
 
-        <section class="photos">
+        <div class="photos">
           <template class="photos__template">
             <div class="photos__content">
               <button class="photos__trash-btn">
@@ -89,10 +89,10 @@
                   src="images/Icons/trash.png"
                   alt="trash icon"
                   class="photos__trash-icon"
-                />
+                >
               </button>
               <button class="photos__imgPopup-btn">
-                <img src="" alt="imagen del post" class="photos__img" />
+                <img src="" alt="imagen del post" class="photos__img">
               </button>
               <h2 class="photos__title"></h2>
               <button class="photos__like-btn">
@@ -100,11 +100,11 @@
                   src="images/Icons/wheart.png"
                   alt="icon like heart"
                   class="photos__like-img"
-                />
+                >
               </button>
             </div>
           </template>
-        </section>
+        </div>
 
         <section class="form-addimg">
           <div class="form__background form-addimg__background"></div>
@@ -116,7 +116,7 @@
                 src="images/Icons/close-icon.png"
                 alt="Close icon"
                 class="form__close-icon"
-              />
+              >
             </button>
 
             <form class="form__inputs form-addimg__inputs">
@@ -129,7 +129,7 @@
                 minlength="2"
                 maxlength="30"
                 required
-              />
+              >
               <span class="empty-field"></span>
               <input
                 type="url"
@@ -138,7 +138,7 @@
                 name="urlImagen"
                 placeholder="Enlace a la imagen"
                 required
-              />
+              >
               <span class="empty-field"></span>
               <button
                 type="submit"
@@ -160,13 +160,13 @@
                 src="images/Icons/close-icon.png"
                 alt="close icon"
                 class="img-popup__close-icon"
-              />
+              >
             </button>
             <img
               src="images/pictures/hobbit-town.jpg"
               alt="fotografia"
               class="img-popup__photo"
-            />
+            >
             <h2 class="img-popup__title">Hobbit Town</h2>
           </div>
           <div class="img-popup__background"></div>
