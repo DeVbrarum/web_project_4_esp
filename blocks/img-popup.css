@@ -83,11 +83,13 @@
 @media screen and (max-width: 984px) {
   .img-popup__content {
     min-width: 240px;
-    max-height: 299px;
+    width: 75%;
+    min-height: 299px;
   }
 
   .img-popup__photo {
-    max-width: 240px;
+    min-width: 240px;
+    width: 100%;
     height: auto;
     min-height: 299px;
   }

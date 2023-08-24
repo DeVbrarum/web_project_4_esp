@@ -5,8 +5,8 @@
 @import url(../blocks/photos.css);
 @import url(../blocks/form.css);
 @import url(../blocks/img-popup.css);
-@import url(../blocks/form-profile.css);
-@import url(../blocks/form-addImg.css);
+@import url(../blocks/edit-profile.css);
+@import url(../blocks/addImg.css);
 @import url(../blocks/footer.css);
 
 @font-face {
