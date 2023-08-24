@@ -1,11 +1,11 @@
 //Open and close form profile
-let profileForm = document.querySelector(".form-profile");
+let profileForm = document.querySelector(".edit-profile");
 let closeBtn = document.querySelector(".form__close");
 let edditProfileBtn = document.querySelector(".profile__editButton");
 let profileBackground = document.querySelector(".form__background");
 
 function toggleProfileForm(form) {
-  form.classList.toggle("form-profile_open");
+  form.classList.toggle("edit-profile_open");
 }
 
 edditProfileBtn.addEventListener("click", () => toggleProfileForm(profileForm));
@@ -18,11 +18,11 @@ closeBtn.addEventListener("click", () => toggleProfileForm(profileForm));
 
 let profileName = document.querySelector(".profile__info-name");
 let profileAbout = document.querySelector(".profile__info-about");
-let nameInput = document.querySelector(".form-profile__name");
-let aboutInput = document.querySelector(".form-profile__about");
-let saveBtnProfile = document.querySelector(".form-profile__btn");
+let nameInput = document.querySelector(".edit-profile__name");
+let aboutInput = document.querySelector(".edit-profile__about");
+let saveBtnProfile = document.querySelector(".edit-profile__btn");
 
-let inputsForm = document.querySelector(".form-profile__inputs");
+let inputsForm = document.querySelector(".edit-profile__inputs");
 
 //Resetea los valores actuales de Name y About
 
@@ -30,7 +30,7 @@ function resetProfile() {
   nameInput.value = profileName.textContent;
   aboutInput.value = profileAbout.textContent;
   saveBtnProfile.disabled = false;
-  saveBtnProfile.classList.add("form-profile__btn_activa");
+  saveBtnProfile.classList.add("edit-profile__btn_activa");
 }
 
 resetProfile();
@@ -48,15 +48,15 @@ saveBtnProfile.addEventListener("click", saveProfile);
 inputsForm.addEventListener("submit", saveProfile);
 
 //Open and close addimage form
-let formAddImg = document.querySelector(".form-addimg");
+let formAddImg = document.querySelector(".addimg");
 let addImgBtn = document.querySelector(".profile__addButton");
-let addImgBackG = document.querySelector(".form-addimg__background");
-let addImgClose = document.querySelector(".form-addimg__close");
-let addImgCreateBtn = document.querySelector(".form-addimg__Btn");
-let addImgInputs = document.querySelector(".form-addimg__inputs");
+let addImgBackG = document.querySelector(".addimg__background");
+let addImgClose = document.querySelector(".addimg__close");
+let addImgCreateBtn = document.querySelector(".addimg__Btn");
+let addImgInputs = document.querySelector(".addimg__inputs");
 
 function toggleAddimg(form) {
-  form.classList.toggle("form-addimage_is-opened");
+  form.classList.toggle("addimage_is-opened");
 }
 
 addImgBtn.addEventListener("click", () => toggleAddimg(formAddImg));
@@ -115,8 +115,8 @@ function addPhoto(urlPhoto, namePhoto) {
 // Create new post photo
 function addNewPhoto(evt) {
   evt.preventDefault();
-  let titleInput = document.querySelector(".form-addimg__title");
-  let urlInput = document.querySelector(".form-addimg__url");
+  let titleInput = document.querySelector(".addimg__title");
+  let urlInput = document.querySelector(".addimg__url");
 
   addPhoto(urlInput.value, titleInput.value);
 
@@ -185,8 +185,8 @@ const userNameProfile = document.querySelector("[name=username]");
 const userAboutProfile = document.getElementById("aboutInput");
 const titleImgPost = document.getElementById("imgtitle");
 const urlImgPost = document.getElementById("urlInput");
-const profileBtn = document.querySelector(".form-profile__btn");
-const createBtn = document.querySelector(".form-addimg__Btn");
+const profileBtn = document.querySelector(".edit-profile__btn");
+const createBtn = document.querySelector(".addimg__Btn");
 
 const validateEmptyField = (message, evt) => {
   const field = evt.target;
@@ -246,10 +246,10 @@ function validarUrl(evt) {
 // Estado del boton disabled
 function btnDisabled() {
   document.getElementById("btnCrear").disabled = true;
-  createBtn.classList.remove("form-addimg__Btn_activa");
+  createBtn.classList.remove("addimg__Btn_activa");
 
   document.getElementById("btnProfile").disabled = true;
-  profileBtn.classList.remove("form-profile__btn_activa");
+  profileBtn.classList.remove("edit-profile__btn_activa");
 }
 
 // Verifica form y activa o desactiva el boton
@@ -261,18 +261,18 @@ function btnState() {
 
   if (fieldtitle.trim().length < 2 || fieldUrl.trim().length < 2) {
     document.getElementById("btnCrear").disabled = true;
-    createBtn.classList.remove("form-addimg__Btn_activa");
+    createBtn.classList.remove("addimg__Btn_activa");
   } else {
     document.getElementById("btnCrear").disabled = false;
-    createBtn.classList.add("form-addimg__Btn_activa");
+    createBtn.classList.add("addimg__Btn_activa");
   }
 
   if (fieldName.trim().length < 2 || fieldAbout.trim().length < 2) {
     document.getElementById("btnProfile").disabled = true;
-    profileBtn.classList.remove("form-profile__btn_activa");
+    profileBtn.classList.remove("edit-profile__btn_activa");
   } else {
     document.getElementById("btnProfile").disabled = false;
-    profileBtn.classList.add("form-profile__btn_activa");
+    profileBtn.classList.add("edit-profile__btn_activa");
   }
 }
 
