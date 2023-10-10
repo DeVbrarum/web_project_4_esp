@@ -211,8 +211,9 @@ function saveProfile(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileAbout.textContent = aboutInput.value;
-
+  resetFieldstoFalse();
   closeProfileForm();
+  toggleButtonState();
 }
 
 //upload preset default images to website
