@@ -51,7 +51,11 @@
               />
             </button>
 
-            <form class="form__inputs edit-profile__inputs" novalidate>
+            <form
+              class="form__inputs edit-profile__inputs"
+              name="userForm"
+              novalidate
+            >
               <input
                 class="form__input edit-profile__name"
                 type="text"
@@ -59,10 +63,12 @@
                 name="username"
                 placeholder="Nombre"
                 minlength="2"
-                maxlength="20"
+                maxlength="40"
                 required
               />
-              <span class="empty-field"> </span>
+              <span class="empty-field">
+                Escribe un nombre valido. Minimos 2 caracteres
+              </span>
               <input
                 class="form__input edit-profile__about"
                 type="text"
@@ -70,11 +76,17 @@
                 name="about"
                 placeholder="Algo de mi"
                 minlength="2"
-                maxlength="22"
+                maxlength="200"
                 required
               />
-              <span class="empty-field"> </span>
-              <button type="submit" class="edit-profile__btn" id="btnProfile">
+              <span class="empty-field">
+                Escribe algo sobre ti. Minimos 2 caracteres
+              </span>
+              <button
+                type="submit"
+                class="form__submit edit-profile__btn"
+                id="btnProfile"
+              >
                 Guardar
               </button>
             </form>
@@ -92,7 +104,7 @@
                 />
               </button>
               <button class="photos__imgPopup-btn">
-                <img src="" alt="imagen del post" class="photos__img" />
+                <img src=" " alt="imagen del post" class="photos__img" />
               </button>
               <h2 class="photos__title"></h2>
               <button class="photos__like-btn">
@@ -119,18 +131,20 @@
               />
             </button>
 
-            <form class="form__inputs addimg__inputs">
+            <form class="form__inputs addimg__inputs" name="userForm">
               <input
                 type="text"
                 class="form__input addimg__title"
                 id="titleInput"
-                name="titulo"
-                placeholder="Título"
+                name="title"
+                placeholder="Titulo"
                 minlength="2"
                 maxlength="30"
                 required
               />
-              <span class="empty-field"></span>
+              <span class="empty-field"
+                >Escribe un titulo valido. Minimos 2 caracteres.</span
+              >
               <input
                 type="url"
                 class="form__input addimg__url"
@@ -139,8 +153,10 @@
                 placeholder="Enlace a la imagen"
                 required
               />
-              <span class="empty-field"></span>
-              <button type="submit" class="addimg__btn" id="btnCrear" disabled>
+              <span class="empty-field">
+                Aporta una Url valida de una imagen.
+              </span>
+              <button type="submit" class="form__submit addimg__btn" disabled>
                 Crear
               </button>
             </form>
@@ -148,8 +164,8 @@
         </section>
 
         <section class="img-popup">
-          <div class=".img-popup__background"></div>
-          <div class="img-popup__content">
+          <div class="img-popup__background"></div>
+          <div class="img-popup__content" id="imagen">
             <button class="img-popup__close closebtn">
               <img
                 src="images/Icons/close-icon.png"
@@ -157,14 +173,9 @@
                 class="img-popup__close-icon"
               />
             </button>
-            <img
-              src="images/pictures/hobbit-town.jpg"
-              alt="fotografia"
-              class="img-popup__photo"
-            />
-            <h2 class="img-popup__title">Hobbit Town</h2>
+            <img src=" " alt="fotografia" class="img-popup__photo" />
+            <h2 class="img-popup__title"></h2>
           </div>
-          <div class="img-popup__background"></div>
         </section>
       </main>
       <footer class="footer">
